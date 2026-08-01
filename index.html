@@ -1,0 +1,1276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta name="theme-color" content="#050305">
+
+  <title>For My Princess ❤️</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="not-opened">
+
+  <!-- Background effects -->
+  <canvas id="starCanvas"></canvas>
+
+  <div id="cursorGlow"></div>
+
+  <div id="petalLayer"></div>
+
+  <!-- Header -->
+  <header class="topbar">
+
+    <a href="#hero" class="brand">
+      For You ♡
+    </a>
+
+    <button
+      id="musicButton"
+      class="music-button"
+      type="button"
+      aria-label="Play or pause music"
+    >
+      <span class="music-circle">♫</span>
+
+      <span id="musicLabel">
+        Play Our Song
+      </span>
+    </button>
+
+    <audio
+      id="bgMusic"
+      loop
+      preload="none"
+    >
+      <source
+        src="music/song.mp3"
+        type="audio/mpeg"
+      >
+    </audio>
+
+  </header>
+
+  <main>
+
+    <!-- =========================================
+         HERO SECTION
+    ========================================== -->
+    <section
+      id="hero"
+      class="hero section"
+    >
+
+      <div class="hero-copy">
+
+        <p class="section-number reveal">
+           FOR MY BIRTHDAY GIRL
+        </p>
+
+        <h1 class="hero-title reveal">
+          The prettiest part
+          <br>
+          of my <span>world.</span>
+        </h1>
+
+        <div class="heart-line reveal">
+          <span></span>
+          <b>♡</b>
+          <span></span>
+        </div>
+
+        <p class="hero-description reveal">
+          This little universe was made only for you,
+          <br>
+           <em>Princess.</em> ♡
+        </p>
+
+        <button
+          id="openSurprise"
+          class="outline-button reveal"
+          type="button"
+        >
+          Open your surprise
+          <span>→</span>
+        </button>
+
+      </div>
+
+      <!-- Realistic animated SVG bouquet -->
+      <div
+        class="rose-wrap reveal"
+        id="bouquetWrap"
+      >
+
+        <div class="bouquet-light"></div>
+
+        <svg
+          class="realistic-bouquet"
+          viewBox="0 0 500 520"
+          role="img"
+          aria-label="Animated red rose bouquet"
+        >
+
+          <defs>
+
+            <!-- Rose gradients -->
+            <radialGradient
+              id="roseOuter"
+              cx="35%"
+              cy="28%"
+              r="75%"
+            >
+              <stop
+                offset="0%"
+                stop-color="#ff7897"
+              />
+
+              <stop
+                offset="28%"
+                stop-color="#d8174f"
+              />
+
+              <stop
+                offset="72%"
+                stop-color="#85082d"
+              />
+
+              <stop
+                offset="100%"
+                stop-color="#420012"
+              />
+            </radialGradient>
+
+            <radialGradient
+              id="roseInner"
+              cx="38%"
+              cy="32%"
+              r="70%"
+            >
+              <stop
+                offset="0%"
+                stop-color="#ff9aae"
+              />
+
+              <stop
+                offset="35%"
+                stop-color="#e51e58"
+              />
+
+              <stop
+                offset="100%"
+                stop-color="#730422"
+              />
+            </radialGradient>
+
+            <linearGradient
+              id="petalHighlight"
+              x1="0"
+              y1="0"
+              x2="1"
+              y2="1"
+            >
+              <stop
+                offset="0%"
+                stop-color="#ff8aa2"
+              />
+
+              <stop
+                offset="50%"
+                stop-color="#c40f45"
+              />
+
+              <stop
+                offset="100%"
+                stop-color="#520018"
+              />
+            </linearGradient>
+
+            <!-- Leaf gradients -->
+            <linearGradient
+              id="leafGradient"
+              x1="0"
+              y1="0"
+              x2="1"
+              y2="1"
+            >
+              <stop
+                offset="0%"
+                stop-color="#5e8c67"
+              />
+
+              <stop
+                offset="35%"
+                stop-color="#294e34"
+              />
+
+              <stop
+                offset="100%"
+                stop-color="#102719"
+              />
+            </linearGradient>
+
+            <linearGradient
+              id="ribbonGradient"
+              x1="0"
+              y1="0"
+              x2="1"
+              y2="1"
+            >
+              <stop
+                offset="0%"
+                stop-color="#ff4f7d"
+              />
+
+              <stop
+                offset="45%"
+                stop-color="#b90f43"
+              />
+
+              <stop
+                offset="100%"
+                stop-color="#5f031f"
+              />
+            </linearGradient>
+
+            <linearGradient
+              id="wrapperGradient"
+              x1="0"
+              y1="0"
+              x2="1"
+              y2="1"
+            >
+              <stop
+                offset="0%"
+                stop-color="#2a0712"
+              />
+
+              <stop
+                offset="55%"
+                stop-color="#120307"
+              />
+
+              <stop
+                offset="100%"
+                stop-color="#3d0a1b"
+              />
+            </linearGradient>
+
+            <!-- Rose shadow -->
+            <filter
+              id="roseShadow"
+              x="-50%"
+              y="-50%"
+              width="200%"
+              height="200%"
+            >
+              <feDropShadow
+                dx="0"
+                dy="8"
+                stdDeviation="8"
+                flood-color="#000000"
+                flood-opacity="0.6"
+              />
+
+              <feDropShadow
+                dx="0"
+                dy="0"
+                stdDeviation="7"
+                flood-color="#e91e58"
+                flood-opacity="0.22"
+              />
+            </filter>
+
+          </defs>
+
+          <!-- Stems -->
+          <g
+            class="bouquet-stems"
+            fill="none"
+            stroke-linecap="round"
+          >
+            <path d="M248 430 C240 340 224 245 222 146" />
+
+            <path d="M253 430 C270 340 302 250 316 158" />
+
+            <path d="M245 430 C210 350 178 272 164 175" />
+
+            <path d="M250 430 C254 340 257 260 255 185" />
+
+            <path d="M246 430 C228 346 209 276 205 197" />
+
+            <path d="M255 430 C288 350 330 290 357 204" />
+
+            <path d="M242 430 C196 357 150 306 132 225" />
+          </g>
+
+          <!-- Back leaves -->
+          <g class="bouquet-leaves back-leaves">
+
+            <g transform="translate(156 245) rotate(-30)">
+
+              <path
+                class="leaf-shape"
+                d="M0 0 C-42-30-74-2-63 37 C-30 52-8 29 0 0Z"
+              />
+
+              <path
+                class="leaf-vein"
+                d="M-55 31 C-34 21-16 11 0 0"
+              />
+
+            </g>
+
+            <g transform="translate(345 252) rotate(24)">
+
+              <path
+                class="leaf-shape"
+                d="M0 0 C42-30 74-2 63 37 C30 52 8 29 0 0Z"
+              />
+
+              <path
+                class="leaf-vein"
+                d="M55 31 C34 21 16 11 0 0"
+              />
+
+            </g>
+
+            <g transform="translate(180 310) rotate(-18)">
+
+              <path
+                class="leaf-shape"
+                d="M0 0 C-45-29-75 2-59 40 C-26 48-8 26 0 0Z"
+              />
+
+              <path
+                class="leaf-vein"
+                d="M-52 34 C-31 22-14 11 0 0"
+              />
+
+            </g>
+
+            <g transform="translate(320 312) rotate(18)">
+
+              <path
+                class="leaf-shape"
+                d="M0 0 C45-29 75 2 59 40 C26 48 8 26 0 0Z"
+              />
+
+              <path
+                class="leaf-vein"
+                d="M52 34 C31 22 14 11 0 0"
+              />
+
+            </g>
+
+          </g>
+
+          <!-- Decorative baby breath -->
+          <g class="baby-breath">
+
+            <g transform="translate(145 190)">
+
+              <path d="M0 80 C8 48 15 25 20 0" />
+
+              <circle
+                cx="20"
+                cy="0"
+                r="5"
+              />
+
+              <circle
+                cx="7"
+                cy="18"
+                r="4"
+              />
+
+              <circle
+                cx="28"
+                cy="24"
+                r="4"
+              />
+
+              <circle
+                cx="2"
+                cy="39"
+                r="3.5"
+              />
+
+            </g>
+
+            <g transform="translate(340 185)">
+
+              <path d="M0 82 C-5 48-10 25-16 0" />
+
+              <circle
+                cx="-16"
+                cy="0"
+                r="5"
+              />
+
+              <circle
+                cx="-4"
+                cy="18"
+                r="4"
+              />
+
+              <circle
+                cx="-24"
+                cy="25"
+                r="4"
+              />
+
+              <circle
+                cx="0"
+                cy="40"
+                r="3.5"
+              />
+
+            </g>
+
+          </g>
+
+          <!-- Rose one -->
+          <g
+            class="rose rose-one"
+            transform="translate(250 135)"
+          >
+
+            <ellipse
+              class="rose-shadow-base"
+              cx="0"
+              cy="16"
+              rx="62"
+              ry="52"
+            />
+
+            <path
+              class="petal petal-outer"
+              d="M-59 8 C-55-40-5-62 33-43 C76-21 62 36 27 58 C-15 77-64 49-59 8Z"
+            />
+
+            <path
+              class="petal"
+              d="M-45-3 C-30-43 17-46 45-16 C55 22 22 51-14 49 C-49 39-57 14-45-3Z"
+            />
+
+            <path
+              class="petal"
+              d="M-27-13 C-10-39 27-28 35 2 C27 31-5 39-28 20 C-42 8-39-3-27-13Z"
+            />
+
+            <path
+              class="petal petal-inner"
+              d="M-13-10 C5-26 25-11 20 10 C11 26-11 22-20 8 C-25 0-21-7-13-10Z"
+            />
+
+            <path
+              class="petal-center"
+              d="M-5-5 C6-13 15-4 11 8 C4 16-9 11-11 2 C-12-2-9-4-5-5Z"
+            />
+
+          </g>
+
+          <!-- Rose two -->
+          <g
+            class="rose rose-two"
+            transform="translate(150 205) scale(.88)"
+          >
+
+            <ellipse
+              class="rose-shadow-base"
+              cx="0"
+              cy="16"
+              rx="62"
+              ry="52"
+            />
+
+            <path
+              class="petal petal-outer"
+              d="M-59 8 C-55-40-5-62 33-43 C76-21 62 36 27 58 C-15 77-64 49-59 8Z"
+            />
+
+            <path
+              class="petal"
+              d="M-45-3 C-30-43 17-46 45-16 C55 22 22 51-14 49 C-49 39-57 14-45-3Z"
+            />
+
+            <path
+              class="petal"
+              d="M-27-13 C-10-39 27-28 35 2 C27 31-5 39-28 20 C-42 8-39-3-27-13Z"
+            />
+
+            <path
+              class="petal petal-inner"
+              d="M-13-10 C5-26 25-11 20 10 C11 26-11 22-20 8 C-25 0-21-7-13-10Z"
+            />
+
+            <path
+              class="petal-center"
+              d="M-5-5 C6-13 15-4 11 8 C4 16-9 11-11 2 C-12-2-9-4-5-5Z"
+            />
+
+          </g>
+
+          <!-- Rose three -->
+          <g
+            class="rose rose-three"
+            transform="translate(350 205) scale(.88)"
+          >
+
+            <ellipse
+              class="rose-shadow-base"
+              cx="0"
+              cy="16"
+              rx="62"
+              ry="52"
+            />
+
+            <path
+              class="petal petal-outer"
+              d="M-59 8 C-55-40-5-62 33-43 C76-21 62 36 27 58 C-15 77-64 49-59 8Z"
+            />
+
+            <path
+              class="petal"
+              d="M-45-3 C-30-43 17-46 45-16 C55 22 22 51-14 49 C-49 39-57 14-45-3Z"
+            />
+
+            <path
+              class="petal"
+              d="M-27-13 C-10-39 27-28 35 2 C27 31-5 39-28 20 C-42 8-39-3-27-13Z"
+            />
+
+            <path
+              class="petal petal-inner"
+              d="M-13-10 C5-26 25-11 20 10 C11 26-11 22-20 8 C-25 0-21-7-13-10Z"
+            />
+
+            <path
+              class="petal-center"
+              d="M-5-5 C6-13 15-4 11 8 C4 16-9 11-11 2 C-12-2-9-4-5-5Z"
+            />
+
+          </g>
+
+          <!-- Rose four -->
+          <g
+            class="rose rose-four"
+            transform="translate(205 240) scale(.8)"
+          >
+
+            <ellipse
+              class="rose-shadow-base"
+              cx="0"
+              cy="16"
+              rx="62"
+              ry="52"
+            />
+
+            <path
+              class="petal petal-outer"
+              d="M-59 8 C-55-40-5-62 33-43 C76-21 62 36 27 58 C-15 77-64 49-59 8Z"
+            />
+
+            <path
+              class="petal"
+              d="M-45-3 C-30-43 17-46 45-16 C55 22 22 51-14 49 C-49 39-57 14-45-3Z"
+            />
+
+            <path
+              class="petal"
+              d="M-27-13 C-10-39 27-28 35 2 C27 31-5 39-28 20 C-42 8-39-3-27-13Z"
+            />
+
+            <path
+              class="petal petal-inner"
+              d="M-13-10 C5-26 25-11 20 10 C11 26-11 22-20 8 C-25 0-21-7-13-10Z"
+            />
+
+            <path
+              class="petal-center"
+              d="M-5-5 C6-13 15-4 11 8 C4 16-9 11-11 2 C-12-2-9-4-5-5Z"
+            />
+
+          </g>
+
+          <!-- Rose five -->
+          <g
+            class="rose rose-five"
+            transform="translate(295 240) scale(.8)"
+          >
+
+            <ellipse
+              class="rose-shadow-base"
+              cx="0"
+              cy="16"
+              rx="62"
+              ry="52"
+            />
+
+            <path
+              class="petal petal-outer"
+              d="M-59 8 C-55-40-5-62 33-43 C76-21 62 36 27 58 C-15 77-64 49-59 8Z"
+            />
+
+            <path
+              class="petal"
+              d="M-45-3 C-30-43 17-46 45-16 C55 22 22 51-14 49 C-49 39-57 14-45-3Z"
+            />
+
+            <path
+              class="petal"
+              d="M-27-13 C-10-39 27-28 35 2 C27 31-5 39-28 20 C-42 8-39-3-27-13Z"
+            />
+
+            <path
+              class="petal petal-inner"
+              d="M-13-10 C5-26 25-11 20 10 C11 26-11 22-20 8 C-25 0-21-7-13-10Z"
+            />
+
+            <path
+              class="petal-center"
+              d="M-5-5 C6-13 15-4 11 8 C4 16-9 11-11 2 C-12-2-9-4-5-5Z"
+            />
+
+          </g>
+
+          <!-- Front leaves -->
+          <g class="bouquet-leaves front-leaves">
+
+            <g transform="translate(208 292) rotate(-35)">
+
+              <path
+                class="leaf-shape"
+                d="M0 0 C-46-28-76 5-57 42 C-24 49-7 25 0 0Z"
+              />
+
+              <path
+                class="leaf-vein"
+                d="M-50 35 C-29 22-13 10 0 0"
+              />
+
+            </g>
+
+            <g transform="translate(292 292) rotate(35)">
+
+              <path
+                class="leaf-shape"
+                d="M0 0 C46-28 76 5 57 42 C24 49 7 25 0 0Z"
+              />
+
+              <path
+                class="leaf-vein"
+                d="M50 35 C29 22 13 10 0 0"
+              />
+
+            </g>
+
+          </g>
+
+          <!-- Bouquet wrapper -->
+          <g class="bouquet-wrapper">
+
+            <path
+              class="wrapper"
+              d="M174 315 C208 332 291 332 326 315 L301 485 L199 485Z"
+            />
+
+            <path
+              class="wrapper-edge"
+              d="M174 315 C213 342 288 342 326 315"
+            />
+
+            <path
+              class="wrapper-shine"
+              d="M205 340 C216 372 219 424 218 467"
+            />
+
+            <!-- Bow -->
+            <g
+              class="bouquet-bow"
+              transform="translate(250 355)"
+            >
+
+              <path
+                class="bow-left"
+                d="M-8 0 C-35-30-72-25-73 6 C-65 35-29 32-8 10Z"
+              />
+
+              <path
+                class="bow-right"
+                d="M8 0 C35-30 72-25 73 6 C65 35 29 32 8 10Z"
+              />
+
+              <ellipse
+                class="bow-knot"
+                cx="0"
+                cy="6"
+                rx="16"
+                ry="14"
+              />
+
+              <path
+                class="ribbon-tail left-tail"
+                d="M-7 18 L-42 104 L-9 85 L7 109 L6 20Z"
+              />
+
+              <path
+                class="ribbon-tail right-tail"
+                d="M7 18 L42 104 L9 85 L-7 109 L-6 20Z"
+              />
+
+            </g>
+
+          </g>
+
+        </svg>
+
+      </div>
+
+     
+
+    </section>
+
+    <!-- =========================================
+         BIRTHDAY MESSAGE
+    ========================================== -->
+    <section
+      id="birthday"
+      class="birthday-section hidden-content"
+    >
+
+      <div class="birthday-heading reveal">
+
+        <p class="section-number">
+          02 · HAPPY BIRTHDAY, PRINCESS
+        </p>
+
+        <h2>
+          Happy Birthday,
+          <br>
+          <span>Princess ♡</span>
+        </h2>
+
+        <p>
+          To my Cutiee, my Babbee Girlll, my Baddie,
+          <br>
+          and forever <em>My Loveee.</em>
+        </p>
+
+      </div>
+
+      <article class="love-card reveal">
+
+        <div class="neon-heart">
+          ♡
+        </div>
+
+        <p>
+       HAPPPY BIRTHDAYYY MYY BABEE GIRLL  ILOVEEEEYOUUU SOOO MUCHH MYY CUTIEE  . I AMM WITHH YOUUU IN YOURR 18 ANDD I  PROMISE I WILL STAY WITHH YOUU TILL YOU TURNN TO 81 OR OLDERR . BABEEE I REALLY DO CAREE ANDD I REALLLY WANNT TOO GIVE YOUU THE LOVEEE YOUU SLWAYSS DESERVEE BUT I AM NOTT THE PERSON WHOO WILL GIVE UP ONN YOUU . I WILL TRYY MYY BESTT TOO MAKE YOUU FEEEL LOVEE ANDD I AMM SUREE I WILL BEE SUCCESSFULL IN DOINGG THATT SOONN . I REALLY CAREE ABOUTT YOUUU IKK  PAILA AMAILEE DHERAII MISTAKEE GAREK OXUU IK I ACCEPT THATT MYY BBG BUTT ABA PASTT IS PASTT IT CANT BE CHANGED BABE LETSS BEE TOGETHER ANDD FOCUSS ON OURR GOALS. I WILL MAKEE SUREE THAT I WILL GIVE YOUU THE QUALITY OFF LIFEE ANDD I WILL NEVERR LET YOUU REGRETT TO CHOOSEE ME AS PARTNERR BABEE ANDD ITSS PINKYY PROMISEE  
+        </p>
+
+        <h3>
+          I love you endlessly. ♡
+        </h3>
+
+      </article>
+
+    </section>
+
+    <!-- =========================================
+         MEMORY GALLERY
+    ========================================== -->
+    <section
+      id="memories"
+      class="memories-section hidden-content"
+    >
+
+      <div class="center-heading reveal">
+
+        <p class="section-number">
+          03 · OUR MEMORIES
+        </p>
+
+        <h2>
+          Beautiful moments with my favorite girl
+        </h2>
+
+        <p>
+          Hover on desktop or tap each photo on your phone.
+        </p>
+
+      </div>
+
+      <div class="memory-slider">
+
+        <button
+          id="prevMemory"
+          class="slider-arrow left"
+          type="button"
+          aria-label="Previous memory"
+        >
+          ‹
+        </button>
+
+        <div
+          id="memoryTrack"
+          class="memory-track"
+        >
+
+          <!-- Memory 1 -->
+          <article class="polaroid reveal">
+
+            <div class="photo-area">
+
+              <img
+                src="images/1.jpg"
+                alt="Memory one"
+              >
+
+              <div class="photo-placeholder">
+                PHOTO 01
+              </div>
+
+              <div class="photo-overlay">
+
+                <strong>
+                  My Princess
+                </strong>
+
+                <p>
+              I remember this dayy it was so beautifull and i really wanna enjoy thatt day again and againn my lovee ♡
+                </p>
+
+              </div>
+
+            </div>
+
+            <p>
+              Meeting after a longg timee ,my lovee . ♡
+            </p>
+
+          </article>
+
+          <!-- Memory 2 -->
+          <article class="polaroid reveal">
+
+            <div class="photo-area">
+
+              <img
+                src="images/2.jpg"
+                alt="Memory two"
+              >
+
+              <div class="photo-placeholder">
+                PHOTO 02
+              </div>
+
+              <div class="photo-overlay">
+
+                <strong>
+                  My Baddiee 
+                </strong>
+
+                <p>
+                 I amm reallyy gratefull kii i foundd a girll whoo hass puree heart cutyy andd baddie all in onee heheh myy bbg muahh. ♡
+                </p>
+
+              </div>
+
+            </div>
+
+            <p>
+              You are my peace in this chaotic world. ♡
+            </p>
+
+          </article>
+
+          <!-- Memory 3 -->
+          <article class="polaroid reveal">
+
+            <div class="photo-area">
+
+              <img
+                src="images/3.jpg"
+                alt="Memory three"
+              >
+
+              <div class="photo-placeholder">
+                PHOTO 03
+              </div>
+
+              <div class="photo-overlay">
+
+                <strong>
+                  My Inncentt babee girll hehe 
+                </strong>
+
+                <p>
+                Youu look soo gorgeous here i really see myy hunee walii wifee hehe andd alaso a sanskarii buharii hehe.♡
+                </p>
+
+              </div>
+
+            </div>
+
+            <p>
+              The way you exist is pure magic. ♡
+            </p>
+
+          </article>
+
+          <!-- Memory 4 -->
+          <article class="polaroid reveal">
+
+            <div class="photo-area">
+
+              <img
+                src="images/4.jpg"
+                alt="Memory four"
+              >
+
+              <div class="photo-placeholder">
+                PHOTO 04
+              </div>
+
+              <div class="photo-overlay">
+
+                <strong>
+                  My  cutiee Baddie
+                </strong>
+
+                <p>
+                 I really lovee thiss outfitt andd i really wanna see youu in this fit in reall life i hopee i will soon hehe you look so perfett in thiss dress likee absolute hypnotic.♡
+                </p>
+
+              </div>
+
+            </div>
+
+            <p>
+             MY girll youuu slayed here  for  real ♡
+            </p>
+
+          </article>
+
+          <!-- Memory 5 -->
+          <article class="polaroid reveal">
+
+            <div class="photo-area">
+
+              <img
+                src="images/5.jpg"
+                alt="Memory five"
+              >
+
+              <div class="photo-placeholder">
+                PHOTO 05
+              </div>
+
+              <div class="photo-overlay">
+
+                <strong>
+                  My donn cutieee 😭😭
+                </strong>
+
+                <p>
+                SOO CUTEE ANII DONN VIBE GIVINGG HEHE MYY CUTIEE . I CAN IMAGINE HOW OUR DAUGHTER WILL LOOK AND I CANT WAIT HER TO SEE HEHEH ♡ ♡
+                </p>
+
+              </div>
+
+            </div>
+
+            <p>
+       Always lookingg so goood heheh muahh 
+            </p>
+
+          </article>
+
+          <!-- Memory 6 -->
+          <article class="polaroid reveal">
+
+            <div class="photo-area">
+
+              <img
+                src="images/6.jpg"
+                alt="Memory six"
+              >
+
+              <div class="photo-placeholder">
+                PHOTO 06
+              </div>
+
+              <div class="photo-overlay">
+
+                <strong>
+                  My Forever Beautiful girll 
+                </strong>
+
+                <p>
+                 So beautifull looking i wishh we couldd alsoo goo forr a longg tourr where their will bee onlyy youu andd mee.♡♡ 
+                </p>
+
+              </div>
+
+            </div>
+
+            <p>
+              My heart chose you, and it always willl for suree . ♡
+            </p>
+
+          </article>
+
+        </div>
+
+        <button
+          id="nextMemory"
+          class="slider-arrow right"
+          type="button"
+          aria-label="Next memory"
+        >
+          ›
+        </button>
+
+      </div>
+
+      <div
+        id="memoryDots"
+        class="memory-dots"
+      ></div>
+
+    </section>
+
+    <!-- =========================================
+         LOVE COUNTER + WISH
+    ========================================== -->
+    <section class="interaction-section hidden-content">
+
+      <!-- Love counter -->
+      <article class="interaction-card reveal">
+
+        <p class="section-number">
+          04 · HOW MUCH DO I LOVE YOU? ♡
+        </p>
+
+        <h2>
+          More than you can imagine
+        </h2>
+
+        <div class="infinity-wrap">
+
+          <span class="mini-heart heart-one">
+            ♡
+          </span>
+
+          <span class="mini-heart heart-two">
+            ♡
+          </span>
+
+          <span class="mini-heart heart-three">
+            ♡
+          </span>
+
+          <div
+            id="loveNumber"
+            class="infinity-symbol"
+          >
+            💕
+          </div>
+
+        </div>
+
+        <p id="loveMessage">
+          Tap the button to see.
+        </p>
+
+        <button
+          id="loveButton"
+          class="outline-button"
+          type="button"
+        >
+          How much do I love you?
+        </button>
+
+      </article>
+
+      <!-- Wish card -->
+      <article class="interaction-card wish-card reveal">
+
+        <p class="section-number">
+          05 · MAKE A WISH ♡
+        </p>
+
+        <h2>
+          Close your eyes and make a wish.
+        </h2>
+
+        <p>
+          I will keep it safe in my heart forever.I promise youu to fulfill yourr wishh muahhh ♡
+        </p>
+
+        <input
+          id="wishInput"
+          type="text"
+          placeholder="Type your wish..."
+          autocomplete="off"
+        >
+
+        <button
+          id="wishButton"
+          class="outline-button"
+          type="button"
+        >
+          Send Wish
+        </button>
+
+        <div
+          id="wishResult"
+          class="wish-result"
+        >
+          Your wish is safe with me, Princess. ♡
+        </div>
+
+      </article>
+
+    </section>
+
+    <!-- =========================================
+         FINALE
+    ========================================== -->
+    <section
+      id="finale"
+      class="finale-section hidden-content"
+    >
+
+      <!-- Fireworks canvas -->
+      <canvas id="fireworksCanvas"></canvas>
+
+      <div class="shooting-star"></div>
+
+      <div class="finale-overlay"></div>
+
+      <div class="finale-content reveal">
+
+        <p class="section-number">
+          06 · ALWAYS & FOREVER
+        </p>
+
+        <p class="finale-intro">
+          No matter where life takes us...
+        </p>
+
+        <h2>
+          You will always be my Princess. ♡
+        </h2>
+
+        <h3>
+          Happy Birthday, My Loveee ♡
+        </h3>
+
+        <!-- Important personal message box -->
+        <div class="important-message-box">
+
+          <span class="message-label">
+            A message from my heart
+          </span>
+
+          <h4>
+            For My Princess ♡
+          </h4>
+
+          <p>
+            My love, I want you to know how deeplly special you are to me.
+            You are nott only the girll I love, but also the person who makess
+            my ordinary days feel beautifull huhu. Your smile makes me happy
+            your voice gives me peace and your presence makes everything
+            feel better.
+          </p>
+
+          <p>
+            I know I may not always express everything perfectly, but my
+            heart always chooses you. I want to celebrate your happiness,
+            support your dreams, stay beside you during difficult days,
+            and create many more beautiful memories with you.which i really mean huhu .
+          </p>
+
+          <p>
+            On your birthday, I hope you feel loved, appreciated, protected,
+            and proud of the person you are becoming. You deserve every
+            beautiful thing this world has to offer.
+          </p>
+
+          <p class="message-signature">
+            Forever yours,
+            <br>
+            Your Cutuuu ♡
+          </p>
+
+        </div>
+
+        <button
+          id="finalSurprise"
+          class="outline-button"
+          type="button"
+        >
+          One Last Surprise
+        </button>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer hidden-content">
+
+    <span>
+      ♡ Made with all my lovee princess
+    </span>
+
+    <span>
+      ∞ Forever yours myy bbgg 
+    </span>
+
+    <span>
+      ♡ Today, Tomorrow, Always Always meanss nextt lifee alsoo hehe 
+    </span>
+
+  </footer>
+
+  <!-- Scroll-to-top button -->
+  <button
+    id="scrollTop"
+    class="scroll-top hidden-content"
+    type="button"
+    aria-label="Scroll to top"
+  >
+    ↑
+  </button>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
